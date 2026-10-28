@@ -7,7 +7,7 @@
 <meta name="description" content="Sachin Chhaya — CS + ORIE at Cornell. Backend, infra, distributed systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500..900&family=Big+Shoulders+Text:wght@500;600&family=Fragment+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500..900&family=Big+Shoulders+Text:wght@500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --paper: #ebe9e2;
@@ -15,7 +15,7 @@
   --dim: #6b6a65;
   --rule: #121212;
   --hot: #ff4a1c;
-  --mono: "Fragment Mono", ui-monospace, monospace;
+  --body: "Instrument Sans", system-ui, sans-serif;
   --sans: "Big Shoulders Display", Impact, sans-serif;
   --text: "Big Shoulders Text", system-ui, sans-serif;
 }
@@ -39,9 +39,10 @@ html { background: var(--paper); }
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--mono);
-  font-size: 15px;
+  font-family: var(--body);
+  font-size: 16px;
   line-height: 1.55;
+  font-variant-numeric: tabular-nums;
   padding: 0 clamp(16px, 3vw, 40px);
   overflow-x: hidden;
 }
@@ -57,17 +58,10 @@ a:hover { color: var(--hot); }
   flex-wrap: wrap;
   padding: 14px 0;
   border-bottom: 1px solid var(--rule);
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.strip .live::before {
-  content: "";
-  display: inline-block;
-  width: 7px; height: 7px;
-  background: var(--hot);
-  margin-right: 8px;
-  vertical-align: 1px;
+  letter-spacing: 0.04em;
 }
 
 /* name */
@@ -85,13 +79,20 @@ h1 .two { text-align: right; }
 
 .intro {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr 1fr;
   gap: 24px;
   border-top: 1px solid var(--rule);
   margin-top: 20px;
   padding: 20px 0 64px;
 }
 .intro p { max-width: 38ch; }
+.intro .me {
+  width: clamp(140px, 16vw, 200px);
+  height: auto;
+  aspect-ratio: 1;
+  display: block;
+  border: 1px solid var(--rule);
+}
 .intro .lead {
   font-family: var(--text);
   font-weight: 500;
@@ -117,7 +118,7 @@ h1 .two { text-align: right; }
   font-size: clamp(36px, 6vw, 72px);
   line-height: 0.9;
 }
-.sec small { font-size: 12px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.06em; }
+.sec small { font-size: 13px; font-weight: 500; color: var(--dim); text-transform: uppercase; letter-spacing: 0.06em; }
 
 .list { margin-bottom: 72px; }
 details { border-bottom: 1px solid var(--rule); }
@@ -142,8 +143,8 @@ summary:focus-visible { outline: 2px solid var(--hot); outline-offset: -2px; }
   line-height: 1.1;
   text-transform: uppercase;
 }
-.t em { font-style: normal; font-family: var(--mono); font-size: 11px; font-weight: 400; vertical-align: 4px; margin-left: 6px; border: 1px solid currentColor; padding: 0 4px; }
-.d, .s, .y { font-size: 13px; }
+.t em { font-style: normal; font-family: var(--body); font-size: 12px; font-weight: 400; vertical-align: 4px; margin-left: 6px; border: 1px solid currentColor; padding: 0 4px; }
+.d, .s, .y { font-size: 15px; }
 .s, .y { opacity: 0.65; }
 .y { text-align: right; }
 .x { text-align: right; transition: transform 0.15s; }
@@ -158,7 +159,7 @@ details[open] .x { transform: rotate(45deg); }
 .body ul { grid-column: 3 / 5; list-style: none; }
 .body li { padding-left: 1.4em; text-indent: -1.4em; margin-bottom: 6px; }
 .body li::before { content: "→ "; color: var(--hot); }
-.body .go { grid-column: 2; font-size: 13px; }
+.body .go { grid-column: 2; font-size: 15px; }
 
 /* footer */
 footer {
@@ -167,7 +168,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  font-size: 13px;
+  font-size: 14px;
 }
 footer .big {
   font-family: var(--sans);
@@ -178,10 +179,11 @@ footer .big {
   text-decoration: none;
 }
 footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align: right; }
-.theme { background: none; border: 1px solid currentColor; color: inherit; font: inherit; font-size: 12px; padding: 0 6px; cursor: pointer; text-transform: uppercase; }
+.theme { background: none; border: 1px solid currentColor; color: inherit; font: inherit; font-size: 13px; padding: 0 6px; cursor: pointer; text-transform: uppercase; }
 
 @media (max-width: 760px) {
   .intro, footer { grid-template-columns: 1fr; }
+  .intro .me { width: 160px; }
   .intro .side, footer .meta { justify-self: start; text-align: left; }
   summary { grid-template-columns: 3ch minmax(0, 1fr) 2ch; row-gap: 4px; }
   .d { grid-column: 2; }
@@ -198,12 +200,12 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
 
 <div class="strip">
   <span>Cornell — CS + ORIE</span>
-  <span class="live">Ithaca <span id="clock">--:--</span></span>
 </div>
 
 <h1><span>Sachin</span><span class="two">Chhaya</span></h1>
 
 <section class="intro">
+  <img class="me" src="me.jpg" alt="Sachin Chhaya" width="600" height="600">
   <p class="lead">I build the backend and infra parts of things, mostly for clubs and research teams.</p>
   <p class="side">Right now: observability with Google,<br>and recruiting tools for CBA.</p>
 </section>
@@ -317,12 +319,6 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
 </footer>
 
 <script>
-  const clock = document.getElementById("clock");
-  const fmt = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false });
-  const tick = () => { clock.textContent = fmt.format(new Date()); };
-  tick();
-  setInterval(tick, 10000);
-
   const root = document.documentElement;
   const dark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
   try { const saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved; } catch (e) {}
