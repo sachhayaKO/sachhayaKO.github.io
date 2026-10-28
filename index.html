@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sachin Chhaya</title>
+<meta name="description" content="Sachin Chhaya — CS + ORIE at Cornell. Backend, infra, distributed systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500..900&family=Big+Shoulders+Text:wght@500;600&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #ebe9e2;
+  --ink: #121212;
+  --dim: #6b6a65;
+  --rule: #121212;
+  --hot: #ff4a1c;
+  --mono: "Fragment Mono", ui-monospace, monospace;
+  --sans: "Big Shoulders Display", Impact, sans-serif;
+  --text: "Big Shoulders Text", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111110;
+    --ink: #e9e7df;
+    --dim: #8a8880;
+    --rule: #e9e7df;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111110;
+  --ink: #e9e7df;
+  --dim: #8a8880;
+  --rule: #e9e7df;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--paper); }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.55;
+  padding: 0 clamp(16px, 3vw, 40px);
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--hot); }
+::selection { background: var(--hot); color: var(--paper); }
+
+/* top strip */
+.strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.strip .live::before {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  background: var(--hot);
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+
+/* name */
+h1 {
+  font-family: var(--sans);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  font-size: clamp(88px, 27vw, 420px);
+  margin: 0.08em 0 0 -0.03em;
+}
+h1 span { display: block; }
+h1 .two { text-align: right; }
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  border-top: 1px solid var(--rule);
+  margin-top: 20px;
+  padding: 20px 0 64px;
+}
+.intro p { max-width: 38ch; }
+.intro .lead {
+  font-family: var(--text);
+  font-weight: 500;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.2;
+  max-width: 24ch;
+}
+.intro .side { color: var(--dim); align-self: end; justify-self: end; text-align: right; }
+
+/* index */
+.sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 3px solid var(--rule);
+  padding-bottom: 6px;
+  margin-top: 8px;
+}
+.sec h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 0.9;
+}
+.sec small { font-size: 12px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.06em; }
+
+.list { margin-bottom: 72px; }
+details { border-bottom: 1px solid var(--rule); }
+summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 3.5ch minmax(0, 1.1fr) minmax(0, 1.6fr) minmax(0, 1fr) 7ch 2ch;
+  gap: 16px;
+  align-items: baseline;
+  padding: 14px 6px;
+  transition: background 0.12s, color 0.12s;
+}
+summary::-webkit-details-marker { display: none; }
+summary:hover, details[open] summary { background: var(--ink); color: var(--paper); }
+summary:focus-visible { outline: 2px solid var(--hot); outline-offset: -2px; }
+.n { color: var(--hot); }
+.t {
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.t em { font-style: normal; font-family: var(--mono); font-size: 11px; font-weight: 400; vertical-align: 4px; margin-left: 6px; border: 1px solid currentColor; padding: 0 4px; }
+.d, .s, .y { font-size: 13px; }
+.s, .y { opacity: 0.65; }
+.y { text-align: right; }
+.x { text-align: right; transition: transform 0.15s; }
+details[open] .x { transform: rotate(45deg); }
+
+.body {
+  display: grid;
+  grid-template-columns: 3.5ch minmax(0, 1.1fr) minmax(0, 1.6fr) minmax(0, 1fr) 7ch 2ch;
+  gap: 16px;
+  padding: 20px 6px 28px;
+}
+.body ul { grid-column: 3 / 5; list-style: none; }
+.body li { padding-left: 1.4em; text-indent: -1.4em; margin-bottom: 6px; }
+.body li::before { content: "→ "; color: var(--hot); }
+.body .go { grid-column: 2; font-size: 13px; }
+
+/* footer */
+footer {
+  border-top: 3px solid var(--rule);
+  padding: 20px 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  font-size: 13px;
+}
+footer .big {
+  font-family: var(--sans);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 0.9;
+  text-decoration: none;
+}
+footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align: right; }
+.theme { background: none; border: 1px solid currentColor; color: inherit; font: inherit; font-size: 12px; padding: 0 6px; cursor: pointer; text-transform: uppercase; }
+
+@media (max-width: 760px) {
+  .intro, footer { grid-template-columns: 1fr; }
+  .intro .side, footer .meta { justify-self: start; text-align: left; }
+  summary { grid-template-columns: 3ch minmax(0, 1fr) 2ch; row-gap: 4px; }
+  .d { grid-column: 2; }
+  .s { grid-column: 2; }
+  .y { display: none; }
+  .x { grid-column: 3; grid-row: 1; }
+  .body { grid-template-columns: 3ch minmax(0, 1fr); }
+  .body ul, .body .go { grid-column: 2; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <span>Cornell — CS + ORIE</span>
+  <span class="live">Ithaca <span id="clock">--:--</span></span>
+</div>
+
+<h1><span>Sachin</span><span class="two">Chhaya</span></h1>
+
+<section class="intro">
+  <p class="lead">I build the backend and infra parts of things, mostly for clubs and research teams.</p>
+  <p class="side">Right now: observability with Google,<br>and recruiting tools for CBA.</p>
+</section>
+
+<div class="sec"><h2>Team work</h2><small>06 projects</small></div>
+<div class="list">
+
+  <details>
+    <summary><span class="n">01</span><span class="t">cba-ops</span><span class="d">Recruiting and member platform for Cornell Business Analytics</span><span class="s">Next.js / FastAPI / Postgres</span><span class="y">Fa '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <a class="go" href="https://github.com/cornell-business-analytics/cba-ops">repo ↗</a>
+      <ul>
+        <li>Built most of the recruitment side: coffee chat tracking through Gmail and Sheets, eval scoring, and bulk acceptance and rejection emails.</li>
+        <li>Wrote a generator for the deliberation decks we used to hand-build.</li>
+        <li>Member pages with full profile editing, plus an events page with publish and unpublish.</li>
+        <li>Headshots were eating our Vercel image quota, so I moved them to 800px WebP on R2 and backfilled the old ones.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="n">02</span><span class="t">AlloyDB Omni<em>private</em></span><span class="d">Diagnosing distributed ML training failures, with Google</span><span class="s">GKE / OTel / Grafana</span><span class="y">Fa '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <ul>
+        <li>Training jobs die from OOMs, NCCL timeouts and NaN loss, and the evidence is split across logs, GPU metrics and the database. The goal is one place to see all of it.</li>
+        <li>Wrote the first deployment manifests for the OpenTelemetry, Prometheus, Loki and Grafana stack on GKE.</li>
+        <li>Built the AlloyDB Omni overview dashboard and set up the database log ingestion.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="n">03</span><span class="t">PriceTrace</span><span class="d">Upload a photo of clothes, get similar ones back</span><span class="s">Flask / React / CLIP</span><span class="y">Sp '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <a class="go" href="https://github.com/rab547/PriceTraceProject">repo ↗</a>
+      <ul>
+        <li>Built the first full-stack version: upload flow, frontend, and the connection to the backend.</li>
+        <li>Started the CLIP embedding + ChromaDB vector layer.</li>
+        <li>Wrote the DeepFashion indexing and path remap scripts so the index survives the dataset moving machines.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="n">04</span><span class="t">IDOL</span><span class="d">Cornell DTI's internal tools, used by 100+ members</span><span class="s">TypeScript</span><span class="y">Fa '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <a class="go" href="https://github.com/cornell-dti/idol">repo ↗</a>
+      <ul>
+        <li>Coffee chats that involved a deleted member resolved to undefined and crashed the page.</li>
+        <li>Mapped unresolvable members to a placeholder so the remaining member keeps credit, and added tests for both sides of the chat.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="n">05</span><span class="t">Diffusion noise<em>private</em></span><span class="d">How the noise you start from shapes the image you get</span><span class="s">PyTorch / diffusers</span><span class="y">Fa '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <ul>
+        <li>ORIE research project on the link between a diffusion model's Gaussian input and its output.</li>
+        <li>Added a deterministic DDIM sampler and generated a few thousand samples for the shared dataset.</li>
+        <li>Reran the radius and angle analyses on DDIM, with permutation tests.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="n">06</span><span class="t">Alignment Playground</span><span class="d">How prompt rules trade safety against helpfulness</span><span class="s">Next.js / Python</span><span class="y">Sp '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <a class="go" href="https://github.com/arnavsriva/alignmentplayground">repo ↗</a>
+      <ul>
+        <li>Cornell hackathon project.</li>
+        <li>Built the live score panel, the false-refusal metric, baseline comparison, and the custom rule editor.</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="sec"><h2>On my own</h2><small>02 projects</small></div>
+<div class="list">
+
+  <details>
+    <summary><span class="n">07</span><span class="t">Raft</span><span class="d">Consensus from scratch, with a KV store on top</span><span class="s">Go / gRPC</span><span class="y">Su '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <a class="go" href="https://github.com/sachhayaKO/raft">repo ↗</a>
+      <ul>
+        <li>Leader election, log replication, crash persistence, and a replicated key-value store. Built with a friend.</li>
+        <li>Passes go test -race across every package.</li>
+        <li>The browser demo lets you kill nodes and watch the cluster re-elect and catch back up.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="n">08</span><span class="t">vol-surface-agent</span><span class="d">"Is AAPL vol rich right now?", answered with real numbers</span><span class="s">Python / LangGraph</span><span class="y">Su '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <a class="go" href="https://github.com/sachhayaKO/vol-surface-agent">repo ↗</a>
+      <ul>
+        <li>Pulls a live options chain, solves for implied vol and greeks, and compares against realized vol.</li>
+        <li>Uses recent 10-Ks and earnings text for context, through a custom LangGraph state machine.</li>
+        <li>Scores 29/30 on a golden-question eval, and has 33 unit tests that never touch the network.</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<footer>
+  <a class="big" href="https://github.com/sachhayaKO">GitHub ↗</a>
+  <div class="meta">Plain HTML and CSS · Updated Oct 2026<br><button class="theme" id="theme" type="button">Invert</button></div>
+</footer>
+
+<script>
+  const clock = document.getElementById("clock");
+  const fmt = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false });
+  const tick = () => { clock.textContent = fmt.format(new Date()); };
+  tick();
+  setInterval(tick, 10000);
+
+  const root = document.documentElement;
+  const dark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  try { const saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved; } catch (e) {}
+  document.getElementById("theme").addEventListener("click", () => {
+    root.dataset.theme = dark() ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  });
+</script>
+</body>
+</html>
