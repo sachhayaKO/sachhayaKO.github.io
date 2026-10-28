@@ -214,11 +214,49 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
   <p class="side">Right now: observability with Google,<br>and recruiting tools for CBA.</p>
 </section>
 
-<div class="sec"><h2>Team work</h2><small>06 projects</small></div>
+<div class="sec"><h2>Experience</h2><small>03 roles</small></div>
 <div class="list">
 
   <details>
-    <summary><span class="n">01</span><span class="t">cba-ops</span><span class="d">Recruiting and member platform for Cornell Business Analytics</span><span class="s">Next.js / FastAPI / Postgres</span><span class="y">Fa '26</span><span class="x">+</span></summary>
+    <summary><span class="n">01</span><span class="t">Google</span><span class="d">SWE intern, diagnosing distributed ML training failures</span><span class="s">Kubernetes / Helm / OTel</span><span class="y">Su '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <ul>
+        <li>Training jobs die from OOMs, NCCL timeouts and NaN loss, and the evidence is split across logs, GPU metrics and the database. The goal is one place to see all of it.</li>
+        <li>Packaged the training stack (AlloyDB Omni on Kubernetes) into one Helm chart that deploys to Kind and GKE, which took environment setup from 90 minutes to 10.</li>
+        <li>Wrote the first deployment manifests for the OpenTelemetry, Prometheus, Loki and Grafana stack, and built the AlloyDB Omni overview dashboard.</li>
+        <li>Built a diagnostic agent that queries AlloyDB, Prometheus and Loki through MCP servers I wrote, and pulls up how similar failures were fixed before.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="n">02</span><span class="t">Crites Lab</span><span class="d">Software for Abigail Crites's astrophysics lab at Cornell</span><span class="s">NumPy / Astropy / Postgres</span><span class="y">'26</span><span class="x">+</span></summary>
+    <div class="body">
+      <ul>
+        <li>Wrote inverse-Fourier deconvolution on NumPy, SciPy and Astropy, raising image SNR from 3 dB to 8 dB across 500+ frames.</li>
+        <li>Moved the lab's data off Google Sheets into its first indexed Postgres database, fast enough to query during live telescope ingestion.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="n">03</span><span class="t">Cornell DTI</span><span class="d">IDOL, the internal tools 100+ members use</span><span class="s">TypeScript</span><span class="y">Fa '26</span><span class="x">+</span></summary>
+    <div class="body">
+      <a class="go" href="https://github.com/cornell-dti/idol">repo ↗</a>
+      <ul>
+        <li>Coffee chats that involved a deleted member resolved to undefined and crashed the page.</li>
+        <li>Mapped unresolvable members to a placeholder so the remaining member keeps credit, and added tests for both sides of the chat.</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
+<div class="sec"><h2>Team work</h2><small>04 projects</small></div>
+<div class="list">
+
+  <details>
+    <summary><span class="n">04</span><span class="t">cba-ops</span><span class="d">Recruiting and member platform for Cornell Business Analytics</span><span class="s">Next.js / FastAPI / Postgres</span><span class="y">Fa '26</span><span class="x">+</span></summary>
     <div class="body">
       <a class="go" href="https://github.com/cornell-business-analytics/cba-ops">repo ↗</a>
       <ul>
@@ -231,18 +269,7 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
   </details>
 
   <details>
-    <summary><span class="n">02</span><span class="t">AlloyDB Omni<em>private</em></span><span class="d">Diagnosing distributed ML training failures, with Google</span><span class="s">GKE / OTel / Grafana</span><span class="y">Fa '26</span><span class="x">+</span></summary>
-    <div class="body">
-      <ul>
-        <li>Training jobs die from OOMs, NCCL timeouts and NaN loss, and the evidence is split across logs, GPU metrics and the database. The goal is one place to see all of it.</li>
-        <li>Wrote the first deployment manifests for the OpenTelemetry, Prometheus, Loki and Grafana stack on GKE.</li>
-        <li>Built the AlloyDB Omni overview dashboard and set up the database log ingestion.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details>
-    <summary><span class="n">03</span><span class="t">PriceTrace</span><span class="d">Upload a photo of clothes, get similar ones back</span><span class="s">Flask / React / CLIP</span><span class="y">Sp '26</span><span class="x">+</span></summary>
+    <summary><span class="n">05</span><span class="t">PriceTrace</span><span class="d">Upload a photo of clothes, get similar ones back</span><span class="s">Flask / React / CLIP</span><span class="y">Sp '26</span><span class="x">+</span></summary>
     <div class="body">
       <a class="go" href="https://github.com/rab547/PriceTraceProject">repo ↗</a>
       <ul>
@@ -254,18 +281,7 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
   </details>
 
   <details>
-    <summary><span class="n">04</span><span class="t">IDOL</span><span class="d">Cornell DTI's internal tools, used by 100+ members</span><span class="s">TypeScript</span><span class="y">Fa '26</span><span class="x">+</span></summary>
-    <div class="body">
-      <a class="go" href="https://github.com/cornell-dti/idol">repo ↗</a>
-      <ul>
-        <li>Coffee chats that involved a deleted member resolved to undefined and crashed the page.</li>
-        <li>Mapped unresolvable members to a placeholder so the remaining member keeps credit, and added tests for both sides of the chat.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details>
-    <summary><span class="n">05</span><span class="t">Diffusion noise<em>private</em></span><span class="d">How the noise you start from shapes the image you get</span><span class="s">PyTorch / diffusers</span><span class="y">Fa '26</span><span class="x">+</span></summary>
+    <summary><span class="n">06</span><span class="t">Diffusion noise<em>private</em></span><span class="d">How the noise you start from shapes the image you get</span><span class="s">PyTorch / diffusers</span><span class="y">Fa '26</span><span class="x">+</span></summary>
     <div class="body">
       <ul>
         <li>ORIE research project on the link between a diffusion model's Gaussian input and its output.</li>
@@ -276,7 +292,7 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
   </details>
 
   <details>
-    <summary><span class="n">06</span><span class="t">Alignment Playground</span><span class="d">How prompt rules trade safety against helpfulness</span><span class="s">Next.js / Python</span><span class="y">Sp '26</span><span class="x">+</span></summary>
+    <summary><span class="n">07</span><span class="t">Alignment Playground</span><span class="d">How prompt rules trade safety against helpfulness</span><span class="s">Next.js / Python</span><span class="y">Sp '26</span><span class="x">+</span></summary>
     <div class="body">
       <a class="go" href="https://github.com/arnavsriva/alignmentplayground">repo ↗</a>
       <ul>
@@ -292,7 +308,7 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
 <div class="list">
 
   <details>
-    <summary><span class="n">07</span><span class="t">Raft</span><span class="d">Consensus from scratch, with a KV store on top</span><span class="s">Go / gRPC</span><span class="y">Su '26</span><span class="x">+</span></summary>
+    <summary><span class="n">08</span><span class="t">Raft</span><span class="d">Consensus from scratch, with a KV store on top</span><span class="s">Go / gRPC</span><span class="y">Su '26</span><span class="x">+</span></summary>
     <div class="body">
       <a class="go" href="https://github.com/sachhayaKO/raft">repo ↗</a>
       <ul>
@@ -304,7 +320,7 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
   </details>
 
   <details>
-    <summary><span class="n">08</span><span class="t">vol-surface-agent</span><span class="d">"Is AAPL vol rich right now?", answered with real numbers</span><span class="s">Python / LangGraph</span><span class="y">Su '26</span><span class="x">+</span></summary>
+    <summary><span class="n">09</span><span class="t">vol-surface-agent</span><span class="d">"Is AAPL vol rich right now?", answered with real numbers</span><span class="s">Python / LangGraph</span><span class="y">Su '26</span><span class="x">+</span></summary>
     <div class="body">
       <a class="go" href="https://github.com/sachhayaKO/vol-surface-agent">repo ↗</a>
       <ul>
@@ -321,7 +337,7 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
 <div class="list">
 
   <details>
-    <summary><span class="n">09</span><span class="t">Fox Chase Cancer Center</span><span class="d">Research intern in the Duy Lab, studying why AML comes back</span><span class="s">RNA-seq / cell culture</span><span class="y">'24–'25</span><span class="x">+</span></summary>
+    <summary><span class="n">10</span><span class="t">Fox Chase Cancer Center</span><span class="d">Research intern in the Duy Lab, studying why AML comes back</span><span class="s">RNA-seq / cell culture</span><span class="y">'24–'25</span><span class="x">+</span></summary>
     <div class="body">
       <ul>
         <li>Analyzed RNA-seq data from about 20 patient samples, looking at GFI-1 expression in AML relapse.</li>
