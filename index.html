@@ -98,7 +98,7 @@ h1 .two { text-align: right; }
   font-weight: 500;
   font-size: clamp(24px, 2.6vw, 34px);
   line-height: 1.2;
-  max-width: 24ch;
+  max-width: 32ch;
 }
 .intro .side { color: var(--dim); align-self: end; justify-self: end; text-align: right; }
 
@@ -178,6 +178,8 @@ footer .big {
   line-height: 0.9;
   text-decoration: none;
 }
+footer .links { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+footer .addr { color: var(--dim); margin-top: 6px; }
 footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align: right; }
 .theme { background: none; border: 1px solid currentColor; color: inherit; font: inherit; font-size: 13px; padding: 0 6px; cursor: pointer; text-transform: uppercase; }
 
@@ -189,6 +191,7 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
   .d { grid-column: 2; }
   .s { grid-column: 2; }
   .y { display: none; }
+  .strip { font-size: 12px; }
   .x { grid-column: 3; grid-row: 1; }
   .body { grid-template-columns: 3ch minmax(0, 1fr); }
   .body ul, .body .go { grid-column: 2; }
@@ -200,13 +203,14 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
 
 <div class="strip">
   <span>Cornell — CS + ORIE</span>
+  <span><a href="mailto:sachhaya1@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/sachinchhaya">LinkedIn</a> · <a href="https://github.com/sachhayaKO">GitHub</a></span>
 </div>
 
 <h1><span>Sachin</span><span class="two">Chhaya</span></h1>
 
 <section class="intro">
   <img class="me" src="me.jpg" alt="Sachin Chhaya" width="600" height="600">
-  <p class="lead">I build the backend and infra parts of things, mostly for clubs and research teams.</p>
+  <p class="lead">I study CS and ORIE at Cornell. Before that I spent a year doing cancer research at Fox Chase, studying leukemia relapse.</p>
   <p class="side">Right now: observability with Google,<br>and recruiting tools for CBA.</p>
 </section>
 
@@ -284,7 +288,7 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
 
 </div>
 
-<div class="sec"><h2>On my own</h2><small>02 projects</small></div>
+<div class="sec"><h2>Personal projects</h2><small>02 projects</small></div>
 <div class="list">
 
   <details>
@@ -313,8 +317,30 @@ footer .meta { color: var(--dim); justify-self: end; align-self: end; text-align
 
 </div>
 
+<div class="sec"><h2>Before Cornell</h2><small>01 role</small></div>
+<div class="list">
+
+  <details>
+    <summary><span class="n">09</span><span class="t">Fox Chase Cancer Center</span><span class="d">Research intern in the Duy Lab, studying why AML comes back</span><span class="s">RNA-seq / cell culture</span><span class="y">'24–'25</span><span class="x">+</span></summary>
+    <div class="body">
+      <ul>
+        <li>Analyzed RNA-seq data from about 20 patient samples, looking at GFI-1 expression in AML relapse.</li>
+        <li>Came up with a way to make our own sterile methylcellulose media, which cut the cost per bottle from $780 to $20.</li>
+        <li>Gave weekly updates to the PI and a team of 10+ postdocs.</li>
+        <li>Started there through TRIP, a 4-month project on long-term epinephrine exposure in fruit flies.</li>
+      </ul>
+    </div>
+  </details>
+
+</div>
+
 <footer>
-  <a class="big" href="https://github.com/sachhayaKO">GitHub ↗</a>
+  <div class="links">
+    <a class="big" href="mailto:sachhaya1@gmail.com">Email ↗</a>
+    <a class="big" href="https://www.linkedin.com/in/sachinchhaya">LinkedIn ↗</a>
+    <a class="big" href="https://github.com/sachhayaKO">GitHub ↗</a>
+    <span class="addr">sachhaya1@gmail.com</span>
+  </div>
   <div class="meta">Plain HTML and CSS · Updated Oct 2026<br><button class="theme" id="theme" type="button">Invert</button></div>
 </footer>
 
